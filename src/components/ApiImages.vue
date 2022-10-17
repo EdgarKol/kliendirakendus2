@@ -86,7 +86,7 @@ export default {
 .card-img-top {
   max-width: 500px;
 }
-#addFavorite {
+/* #addFavorite {
   display: none;
-}
+} */
 </style>
