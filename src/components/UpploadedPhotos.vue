@@ -18,7 +18,6 @@
 </template>
 <script>
 import axios from "axios";
-//import cors from "cors";
 export default {
   name: "UploadedFotos",
   probs: {
@@ -44,7 +43,7 @@ export default {
       formData.append("file", this.file);
 
       let post_body = {
-        formData: formData.file,
+        file: this.file,
         sub_id: "User-123",
       };
       console.log(post_body);
