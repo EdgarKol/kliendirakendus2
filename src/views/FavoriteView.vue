@@ -1,13 +1,13 @@
 <template>
   <div class="Favorite"></div>
   <ApiFavorites />
-  <UpploadedPhotos />
+  <UploadedPhotos />
 </template>
 <script>
 import ApiFavorites from "@/components/ApiFavorites.vue";
-import UpploadedPhotos from "@/components/UpploadedPhotos.vue";
+import UploadedPhotos from "@/components/UploadedPhotos.vue";
 export default {
   name: "FavoriteView",
-  components: { ApiFavorites, UpploadedPhotos },
+  components: { ApiFavorites, UploadedPhotos },
 };
 </script>

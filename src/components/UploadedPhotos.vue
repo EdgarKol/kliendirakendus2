@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      upploadedFotos: [],
+      uploadedFotos: [],
       file: "",
     };
   },
@@ -48,7 +48,12 @@ export default {
       };
       console.log(post_body);
       await axios
-        .post("https://api.thedogapi.com/v1/images/upload", post_body)
+        .post("https://api.thedogapi.com/v1/images/upload", post_body, {
+          headers: {
+            "x-api-key":
+              "live_FzHtoSZSl9gOwUuXd51TR9gCgMPkwJoEio4vfguvspyzMQKqTC6Bpjt165nkBlR7",
+          },
+        })
         .then(function () {
           console.log("SUCCESS");
         })
@@ -60,8 +65,8 @@ export default {
     async getUpploadFoto() {
       try {
         let res = await axios.get("https://api.thedogapi.com/v1/images");
-        this.UpploadedFotos = res.data;
-        console.log(this.UpploadedFotos);
+        this.uploadedFotos = res.data;
+        console.log(this.uploadedFotos);
       } catch (error) {
         this.error_message = error.respone.data.message;
       }
