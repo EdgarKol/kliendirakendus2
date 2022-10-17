@@ -3,11 +3,11 @@ import HomeView from "../views/HomeView.vue";
 import FavoriteView from "../views/FavoriteView.vue";
 import LoginView from "../views/LoginView.vue";
 
-const checkAuth = () => {
+/* const checkAuth = () => {
   let isAuth = false;
   if (!isAuth) return "/login";
   return true;
-};
+}; */
 
 const routes = [
   {
@@ -19,7 +19,7 @@ const routes = [
     path: "/favorites",
     name: "favorites",
     component: FavoriteView,
-    beforeEnter: [checkAuth],
+    // beforeEnter: [checkAuth],
   },
   {
     path: "/login",

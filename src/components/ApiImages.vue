@@ -40,6 +40,7 @@ export default {
   created() {
     axios.defaults.headers.common["x-api-key"] =
       "live_FzHtoSZSl9gOwUuXd51TR9gCgMPkwJoEio4vfguvspyzMQKqTC6Bpjt165nkBlR7";
+    this.getImages();
   },
   methods: {
     async getImages() {

@@ -1,7 +1,26 @@
 <template>
   <h1>Favorites</h1>
-  <div class="your photo">
-    <button type="button" class="btn btn-success">Add your photo</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target=".bd-example-modal-sm"
+  >
+    Add photo
+  </button>
+
+  <div
+    class="modal fade bd-example-modal-sm"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+    aria-hidden="true"
+  >
+    <label for="formFileMultiple" class="form-label"
+      >Multiple files input example</label
+    >
+    <input class="form-control" type="file" id="formFileMultiple" multiple />
+    <button class="btn btn-primary">Upload Picture</button>
   </div>
   <div
     v-for="favorite in favorites"
