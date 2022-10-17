@@ -1,25 +1,69 @@
 <template>
+  <div class="height-100 d-flex justify-content-center align-items-center">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Upload your own image
+    </button>
+    <!-- Modal -->
+  </div>
   <div
-    class="modal fade bd-example-modal-sm"
+    class="modal fade"
+    id="exampleModal"
     tabindex="-1"
-    role="dialog"
-    aria-labelledby="mySmallModalLabel"
+    aria-labelledby="exampleModalLabel"
     aria-hidden="true"
   >
-    <input
-      class="form-control"
-      type="file"
-      @change="handleFileUpload($event)"
-    />
-    <button @click="submitFile()" class="btn btn-primary">
-      Upload Picture
-    </button>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Uploading a new photo
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="body-desc">
+            You can upload the image in JPG, GIF or PNG format.
+          </p>
+          <div class="photo-input">
+            <input
+              type="file"
+              @change="handleFileUpload($event)"
+              id="loadFile"
+            />
+            <button
+              class="btn btn-sm btn-primary"
+              onclick="document.getElementById('loadFile').click()"
+            >
+              Select a file
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p class="footer-title">
+            If you're having problems uploading, try choosing a smaller photo.
+          </p>
+          <button @click="submitFile(file)" class="btn btn-sm btn-primary">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import axios from "axios";
 export default {
-  name: "UploadedFotos",
+  name: "UploadedPhotos",
   probs: {
     msg: String,
   },
@@ -61,7 +105,7 @@ export default {
           console.log("FAIL");
         });
     },
-
+    // get uploaded photos
     async getUpploadFoto() {
       try {
         let res = await axios.get("https://api.thedogapi.com/v1/images");
