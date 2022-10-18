@@ -1,21 +1,23 @@
 <template>
-  <div
-    v-for="image in images"
-    :key="image.id"
-    class="card"
-    style="width: 15rem"
-  >
-    <img class="card-img-top" :src="image.url" alt="Card image cap" />
+  <div class="container">
+    <div
+      v-for="image in images"
+      :key="image.id"
+      class="card"
+      style="width: 15rem"
+    >
+      <img class="card-img-top" :src="image.url" alt="Card image cap" />
 
-    <div class="card-body">
-      <button
-        id="addFavorite"
-        @click="addFavorites(image.id)"
-        type="button"
-        class="btn btn-primary"
-      >
-        Add Favorites
-      </button>
+      <div class="card-body">
+        <button
+          id="addFavorite"
+          @click="addFavorites(image.id)"
+          type="button"
+          class="btn btn-primary"
+        >
+          Add Favorites
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -78,15 +80,18 @@ export default {
 };
 </script>
 <style scoped>
+.container {
+  display: flex;
+}
 .card {
   display: flex;
   margin: 10px auto;
-  flex-direction: column;
 }
 .card-img-top {
   max-width: 500px;
 }
-/* #addFavorite {
-  display: none;
-} */
+#addFavorite {
+  justify-content: center;
+  align-content: center;
+}
 </style>

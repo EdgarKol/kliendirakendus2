@@ -1,21 +1,27 @@
 <template>
   <h1>Favorites</h1>
-  <div
-    v-for="favorite in favorites"
-    :key="favorite.image.url"
-    class="card"
-    style="width: 15rem"
-  >
-    <img class="card-img-top" :src="favorite.image.url" alt="Card image cap" />
+  <div class="container">
+    <div
+      v-for="favorite in favorites"
+      :key="favorite.image.url"
+      class="card"
+      style="width: 15rem"
+    >
+      <img
+        class="card-img-top"
+        :src="favorite.image.url"
+        alt="Card image cap"
+      />
 
-    <div class="card-body">
-      <button
-        @click="removeFavorite(favorite.id)"
-        type="button"
-        class="btn btn-danger"
-      >
-        Remove from favorites
-      </button>
+      <div class="card-body">
+        <button
+          @click="removeFavorite(favorite.id)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Remove from favorites
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -78,5 +84,8 @@ export default {
 }
 .card-img-top {
   max-width: 500px;
+}
+.container {
+  display: flex;
 }
 </style>

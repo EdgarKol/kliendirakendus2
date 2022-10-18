@@ -1,21 +1,24 @@
 <template>
   <h2>Uploaded Photos</h2>
-  <div
-    v-for="uploaded in uploadedPhotos"
-    :key="uploaded.url"
-    class="card"
-    style="width: 15rem"
-  >
-    <img class="card-img-top" :src="uploaded.url" alt="Card image cap" />
+  <div class="container">
+    <div
+      v-for="uploaded in uploadedPhotos"
+      :key="uploaded.url"
+      class="card"
+      style="width: 15rem"
+    >
+      <img class="card-img-top" :src="uploaded.url" alt="Card image cap" />
 
-    <div class="card-body">
-      <button
-        @click="deletePhoto(uploaded.id)"
-        type="button"
-        class="btn btn-danger"
-      >
-        Delete Uploaded Photo
-      </button>
+      <div class="card-body">
+        <button
+          @click="deletePhoto(uploaded.id)"
+          type="button"
+          class="btn btn-danger"
+          id="deletePhoto"
+        >
+          Delete Uploaded Photo
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -67,7 +70,17 @@ export default {
 };
 </script>
 <style scoped>
-h2 {
-  align-items: left;
+.container {
+  display: flex;
+}
+#deletePhoto {
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  max-width: 100%;
+  display: flex;
+  margin: 10px auto;
+  flex-direction: column;
 }
 </style>

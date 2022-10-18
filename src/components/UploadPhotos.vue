@@ -137,6 +137,8 @@ export default {
         this.uploading = false;
         this.image_file = null;
       }
+      console.log("Photo Upload Successful");
+      this.$router.go();
     },
   },
 };

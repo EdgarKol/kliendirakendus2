@@ -86,14 +86,16 @@ export default {
       users.push(user1);
       console.log(users);
       if (
-        user1.userName === this.formData.uName &&
-        user1.password === this.formData.uPassword
+        !(
+          user1.userName === this.formData.uName &&
+          user1.password === this.formData.uPassword
+        )
       ) {
+        console.log("wrong username or password");
+      } else {
         console.log("Login successful");
         localStorage.setItem("token", "12345");
         this.$router.push({ path: "/favorites" });
-      } else {
-        console.log("wrong username or password");
       }
     }
     return {
