@@ -48,6 +48,7 @@
           </div>
         </div>
         <div class="modal-footer">
+          <div v-show="uploading">Uploading</div>
           <p class="footer-title">
             If you're having problems uploading, try choosing a smaller photo.
           </p>
