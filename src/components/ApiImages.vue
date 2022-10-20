@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import env from "../env";
 import axios from "axios";
 
 export default {
@@ -40,8 +41,7 @@ export default {
     };
   },
   created() {
-    axios.defaults.headers.common["x-api-key"] =
-      "live_FzHtoSZSl9gOwUuXd51TR9gCgMPkwJoEio4vfguvspyzMQKqTC6Bpjt165nkBlR7";
+    axios.defaults.headers.common["x-api-key"] = env.apikey;
     this.getImages();
   },
   methods: {
