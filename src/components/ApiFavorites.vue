@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import env from "../env";
+//import env from "../env";
 import axios from "axios";
 export default {
   name: "ApiFavorites",
@@ -39,7 +39,7 @@ export default {
     };
   },
   created() {
-    axios.defaults.headers.common["x-api-key"] = env.apikey;
+    //axios.defaults.headers.common["x-api-key"] = env.apikey;
     this.getFavourites();
   },
   methods: {
@@ -50,9 +50,10 @@ export default {
           order: "DESC",
           page: this.page - 1,
         };
-        let res = await axios.get("https://api.thedogapi.com/v1/favourites", {
+        let res = await axios.get("http://localhost:3000/favorites", {
           params: query_params,
         });
+        //console.log(res.data);
         this.favorites = res.data;
         console.log(this.favorites);
         // this.pagination_count = response.headers["pagination-count"];
