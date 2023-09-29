@@ -1,5 +1,6 @@
 <template>
   <div class="Favorite"></div>
+  <button @click="loggout">Loggout</button>
   <UploadPhotos />
   <UploadedPhotos />
   <ApiFavorites />
@@ -12,5 +13,14 @@ import UploadedPhotos from "@/components/UploadedPhotos.vue";
 export default {
   name: "FavoriteView",
   components: { ApiFavorites, UploadPhotos, UploadedPhotos },
+  data() {
+    function loggout() {
+      localStorage.clear();
+      console.log("Logged out");
+    }
+    return {
+      loggout,
+    };
+  },
 };
 </script>

@@ -3,11 +3,16 @@ import HomeView from "../views/HomeView.vue";
 import FavoriteView from "../views/FavoriteView.vue";
 import LoginView from "../views/LoginView.vue";
 
-/* const checkAuth = () => {
+function isAuthent(to, from, next) {
   let isAuth = false;
-  if (!isAuth) return "/login";
-  return true;
-}; */
+  if (localStorage.getItem("user1")) isAuth = true;
+  else isAuth = false;
+  if (isAuth) {
+    next();
+  } else {
+    router.push("/login");
+  }
+}
 
 const routes = [
   {
@@ -19,7 +24,7 @@ const routes = [
     path: "/favorites",
     name: "favorites",
     component: FavoriteView,
-    // beforeEnter: [checkAuth],
+    beforeEnter: isAuthent,
   },
   {
     path: "/login",

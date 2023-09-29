@@ -74,7 +74,7 @@ export default {
         this.error_message = error.respone.data.message;
       }
       console.log("Favorite added");
-      this.getImages();
+      //this.getImages();
     },
   },
 };

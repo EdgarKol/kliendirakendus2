@@ -1,21 +1,12 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <h2>Uploaded Photos</h2>
   <div class="container">
-    <div
-      v-for="uploaded in uploadedPhotos"
-      :key="uploaded.url"
-      class="card"
-      style="width: 15rem"
-    >
+    <div v-for="uploaded in uploadedPhotos" :key="uploaded.url" class="card" style="width: 15rem">
       <img class="card-img-top" :src="uploaded.url" alt="Card image cap" />
 
       <div class="card-body">
-        <button
-          @click="deletePhoto(uploaded.id)"
-          type="button"
-          class="btn btn-danger"
-          id="deletePhoto"
-        >
+        <button @click="deletePhoto(uploaded.id)" type="button" class="btn btn-danger" id="deletePhoto">
           Delete Uploaded Photo
         </button>
       </div>
@@ -23,7 +14,7 @@
   </div>
 </template>
 <script>
-import env from "../env";
+import env from "../env.js";
 import axios from "axios";
 export default {
   name: "UploadedPhotos",
@@ -73,10 +64,12 @@ export default {
 .container {
   display: flex;
 }
+
 #deletePhoto {
   justify-content: center;
   align-items: center;
 }
+
 .card {
   max-width: 100%;
   display: flex;
